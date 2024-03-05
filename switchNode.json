@@ -1,0 +1,239 @@
+{
+  "contentType": "application/vnd.gorules.decision",
+  "nodes": [
+    {
+      "name": "myRequest",
+      "id": "9f2700fd-fb23-4337-bf1f-a2278831619a",
+      "position": {
+        "x": 35,
+        "y": 70
+      },
+      "type": "inputNode"
+    },
+    {
+      "name": "myResponse",
+      "id": "78535fa3-30f5-4e56-8c47-32c0b1050087",
+      "position": {
+        "x": 1005,
+        "y": 70
+      },
+      "type": "outputNode"
+    },
+    {
+      "name": "mySwitch",
+      "content": {
+        "statements": [
+          {
+            "id": "2647740c-e3f4-472a-bde6-15037dd1a4fb",
+            "condition": "company.type == 'LLC'"
+          },
+          {
+            "id": "6b463554-dddb-4078-b2f9-e08ffd3c2e83",
+            "condition": "company.type == 'Corp'"
+          }
+        ],
+        "hitPolicy": "first"
+      },
+      "id": "d32ca7f2-8cf9-4752-82d0-7a2de5adfed1",
+      "position": {
+        "x": 350,
+        "y": 20
+      },
+      "type": "switchNode"
+    },
+    {
+      "name": "myDecisionTable",
+      "content": {
+        "hitPolicy": "first",
+        "inputs": [
+          {
+            "id": "fd84186d-1ee4-454d-b756-29022df1b377",
+            "name": "Input",
+            "type": "expression"
+          }
+        ],
+        "outputs": [
+          {
+            "field": "output",
+            "id": "e22a7372-9a0b-41b6-94b8-4599a4c75111",
+            "name": "Output",
+            "type": "expression"
+          }
+        ],
+        "rules": []
+      },
+      "id": "ab8811fa-178b-4e1c-81c9-755e334e88ba",
+      "position": {
+        "x": 920,
+        "y": 120
+      },
+      "type": "decisionTableNode"
+    },
+    {
+      "name": "LLC Decision Table",
+      "content": {
+        "hitPolicy": "first",
+        "inputs": [
+          {
+            "id": "a16829e3-f283-47f1-af58-501a41d4df72",
+            "type": "expression",
+            "field": "company.name",
+            "name": "Company Name"
+          }
+        ],
+        "outputs": [
+          {
+            "field": "tax.perc",
+            "id": "b2d632ff-2c17-4147-ae82-e0fcb15d47e8",
+            "name": "Tax to Company(%)",
+            "type": "expression"
+          }
+        ],
+        "rules": [
+          {
+            "_id": "a791f744-d3c5-4eff-b441-e28243617bd7",
+            "a16829e3-f283-47f1-af58-501a41d4df72": "\"Coastal Horizon Ventures, LLC\"",
+            "b2d632ff-2c17-4147-ae82-e0fcb15d47e8": "8"
+          },
+          {
+            "_id": "7c2b8888-5e76-443c-9cbd-2b8ae7b69f9b",
+            "a16829e3-f283-47f1-af58-501a41d4df72": "\"Summit Innovations Group, LLC\"",
+            "b2d632ff-2c17-4147-ae82-e0fcb15d47e8": "3"
+          },
+          {
+            "_id": "5c53419e-b058-49c2-aa40-4ad1c85bf9bc",
+            "a16829e3-f283-47f1-af58-501a41d4df72": "\"Green Oasis Holdings, LLC\"",
+            "b2d632ff-2c17-4147-ae82-e0fcb15d47e8": "21"
+          },
+          {
+            "_id": "8f5907e1-cfae-4e24-b442-73a0767137cb",
+            "a16829e3-f283-47f1-af58-501a41d4df72": "\"Stellar Nexus Solutions, LLC\"",
+            "b2d632ff-2c17-4147-ae82-e0fcb15d47e8": "9"
+          },
+          {
+            "_id": "55d88028-b04e-4325-a7fc-5f363136b945",
+            "a16829e3-f283-47f1-af58-501a41d4df72": "\"Evergreen Insight Partners, LLC\"",
+            "b2d632ff-2c17-4147-ae82-e0fcb15d47e8": "16"
+          },
+          {
+            "_id": "186048f0-1519-40ce-813c-df76fa7efd50",
+            "a16829e3-f283-47f1-af58-501a41d4df72": "",
+            "b2d632ff-2c17-4147-ae82-e0fcb15d47e8": "12"
+          }
+        ]
+      },
+      "id": "613e36b7-343b-4919-87ae-82363f45d577",
+      "position": {
+        "x": 625,
+        "y": 20
+      },
+      "type": "decisionTableNode"
+    },
+    {
+      "name": "Corp Decision Table",
+      "content": {
+        "hitPolicy": "first",
+        "inputs": [
+          {
+            "id": "f13c84c4-a39f-4ad0-b097-bbc42c2d6b37",
+            "name": "Company Name",
+            "type": "expression",
+            "field": "company.name"
+          }
+        ],
+        "outputs": [
+          {
+            "field": "tax.perc",
+            "id": "bdfc846c-1fec-46d2-af13-08c6f08730e7",
+            "name": "Tax to Company(%)",
+            "type": "expression"
+          },
+          {
+            "id": "f6449945-e631-4e50-ba56-74723fe1cd27",
+            "type": "expression",
+            "field": "amount.payable",
+            "name": "Amount Payable ($)"
+          }
+        ],
+        "rules": [
+          {
+            "_id": "7f3e9725-d007-4f50-806b-ac9bfa8eb826",
+            "f13c84c4-a39f-4ad0-b097-bbc42c2d6b37": "\"Quantum Dynamics Corporation\"",
+            "bdfc846c-1fec-46d2-af13-08c6f08730e7": "15",
+            "f6449945-e631-4e50-ba56-74723fe1cd27": "250000"
+          },
+          {
+            "_id": "e1a42ceb-aa2a-4766-bfdf-f1c9521ea977",
+            "f13c84c4-a39f-4ad0-b097-bbc42c2d6b37": "\"Liberty Global Enterprises, Inc.\"",
+            "bdfc846c-1fec-46d2-af13-08c6f08730e7": "5",
+            "f6449945-e631-4e50-ba56-74723fe1cd27": "650000"
+          },
+          {
+            "_id": "3b79179d-4468-42f1-ab97-2a88ab1e6fb6",
+            "f13c84c4-a39f-4ad0-b097-bbc42c2d6b37": "\"Horizon Synergy Corp.\"",
+            "bdfc846c-1fec-46d2-af13-08c6f08730e7": "10",
+            "f6449945-e631-4e50-ba56-74723fe1cd27": "300000"
+          },
+          {
+            "_id": "4de99052-3cd4-4990-9838-5e1f6e3955e9",
+            "f13c84c4-a39f-4ad0-b097-bbc42c2d6b37": "\"Vanguard Solutions International, Inc.\"",
+            "bdfc846c-1fec-46d2-af13-08c6f08730e7": "16",
+            "f6449945-e631-4e50-ba56-74723fe1cd27": "126500"
+          },
+          {
+            "_id": "41067d29-4520-40fb-b4ff-77397ae254b3",
+            "f13c84c4-a39f-4ad0-b097-bbc42c2d6b37": "\"Precision Systems Technologies, Inc.\"",
+            "bdfc846c-1fec-46d2-af13-08c6f08730e7": "30",
+            "f6449945-e631-4e50-ba56-74723fe1cd27": "65000"
+          },
+          {
+            "_id": "205f2504-d16d-4977-a01f-dad175a201bc",
+            "f13c84c4-a39f-4ad0-b097-bbc42c2d6b37": "",
+            "bdfc846c-1fec-46d2-af13-08c6f08730e7": "25",
+            "f6449945-e631-4e50-ba56-74723fe1cd27": ""
+          }
+        ]
+      },
+      "id": "c5f57d9b-424e-4c53-b279-fed34affa2d0",
+      "position": {
+        "x": 620,
+        "y": 135
+      },
+      "type": "decisionTableNode"
+    }
+  ],
+  "edges": [
+    {
+      "id": "f3c3774d-1f45-4458-bc0a-04f65aacd8c8",
+      "sourceId": "9f2700fd-fb23-4337-bf1f-a2278831619a",
+      "type": "edge",
+      "targetId": "d32ca7f2-8cf9-4752-82d0-7a2de5adfed1"
+    },
+    {
+      "id": "f4b95f7b-f043-443f-85bd-1eaad071e0e0",
+      "sourceId": "d32ca7f2-8cf9-4752-82d0-7a2de5adfed1",
+      "type": "edge",
+      "targetId": "613e36b7-343b-4919-87ae-82363f45d577",
+      "sourceHandle": "2647740c-e3f4-472a-bde6-15037dd1a4fb"
+    },
+    {
+      "id": "a6752a90-0c85-427f-8fbf-5bb0e3b3c415",
+      "sourceId": "d32ca7f2-8cf9-4752-82d0-7a2de5adfed1",
+      "type": "edge",
+      "targetId": "c5f57d9b-424e-4c53-b279-fed34affa2d0",
+      "sourceHandle": "6b463554-dddb-4078-b2f9-e08ffd3c2e83"
+    },
+    {
+      "id": "4da13caf-0f58-44b0-8915-0116bbf85161",
+      "sourceId": "613e36b7-343b-4919-87ae-82363f45d577",
+      "type": "edge",
+      "targetId": "78535fa3-30f5-4e56-8c47-32c0b1050087"
+    },
+    {
+      "id": "e6b64b10-fca7-413f-86a4-6c656cd418f7",
+      "sourceId": "c5f57d9b-424e-4c53-b279-fed34affa2d0",
+      "type": "edge",
+      "targetId": "78535fa3-30f5-4e56-8c47-32c0b1050087"
+    }
+  ]
+}

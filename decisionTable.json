@@ -1,0 +1,99 @@
+{
+  "contentType": "application/vnd.gorules.decision",
+  "nodes": [
+    {
+      "name": "myRequest",
+      "id": "9f2700fd-fb23-4337-bf1f-a2278831619a",
+      "position": {
+        "x": 275,
+        "y": 425
+      },
+      "type": "inputNode"
+    },
+    {
+      "name": "myResponse",
+      "id": "78535fa3-30f5-4e56-8c47-32c0b1050087",
+      "position": {
+        "x": 775,
+        "y": 425
+      },
+      "type": "outputNode"
+    },
+    {
+      "name": "myDecisionTable",
+      "content": {
+        "hitPolicy": "first",
+        "inputs": [
+          {
+            "id": "5ef02fee-106b-4518-990f-14c1ba0a2309",
+            "name": "Number 1",
+            "type": "expression",
+            "field": "myInp.num1",
+            "defaultValue": ""
+          },
+          {
+            "id": "8b697048-4517-4fdb-a086-2d1748a20530",
+            "type": "expression",
+            "field": "myInp.num2",
+            "name": "Number 2"
+          }
+        ],
+        "outputs": [
+          {
+            "field": "boolAnd",
+            "id": "e25e3344-8ab5-48e7-bcd4-17600eb79727",
+            "name": "Boolean AND Result",
+            "type": "expression"
+          }
+        ],
+        "rules": [
+          {
+            "_id": "0a44d15e-77bb-40e3-9db0-d27e2b85f35a",
+            "_description": "Hello",
+            "5ef02fee-106b-4518-990f-14c1ba0a2309": "0",
+            "8b697048-4517-4fdb-a086-2d1748a20530": "1",
+            "e25e3344-8ab5-48e7-bcd4-17600eb79727": "0"
+          },
+          {
+            "_id": "2b61a28d-ae82-45ef-a18f-b8738d886681",
+            "5ef02fee-106b-4518-990f-14c1ba0a2309": "1",
+            "8b697048-4517-4fdb-a086-2d1748a20530": "0",
+            "e25e3344-8ab5-48e7-bcd4-17600eb79727": "0"
+          },
+          {
+            "_id": "447ad622-b9b5-48fc-86e2-ff18bcf3a133",
+            "5ef02fee-106b-4518-990f-14c1ba0a2309": "1",
+            "8b697048-4517-4fdb-a086-2d1748a20530": "1",
+            "e25e3344-8ab5-48e7-bcd4-17600eb79727": "1"
+          },
+          {
+            "_id": "f88e47db-b6fc-4b2e-a784-b1c3a5c57955",
+            "5ef02fee-106b-4518-990f-14c1ba0a2309": "0",
+            "8b697048-4517-4fdb-a086-2d1748a20530": "0",
+            "e25e3344-8ab5-48e7-bcd4-17600eb79727": "0"
+          }
+        ]
+      },
+      "id": "ca3f1666-bab4-40c4-9c0b-b7151c26e550",
+      "position": {
+        "x": 525,
+        "y": 425
+      },
+      "type": "decisionTableNode"
+    }
+  ],
+  "edges": [
+    {
+      "id": "97500059-efee-48ba-9958-481a31026108",
+      "sourceId": "9f2700fd-fb23-4337-bf1f-a2278831619a",
+      "type": "edge",
+      "targetId": "ca3f1666-bab4-40c4-9c0b-b7151c26e550"
+    },
+    {
+      "id": "4ca5087d-fbf5-48da-9af0-06e7e4740195",
+      "sourceId": "ca3f1666-bab4-40c4-9c0b-b7151c26e550",
+      "type": "edge",
+      "targetId": "78535fa3-30f5-4e56-8c47-32c0b1050087"
+    }
+  ]
+}

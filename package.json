@@ -1,0 +1,15 @@
+{
+  "name": "zen-bre",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bsarvani@mcfadyen.com",
+  "type": "module",
+  "license": "ISC",
+  "dependencies": {
+    "@gorules/zen-engine": "^0.15.1"
+  }
+}

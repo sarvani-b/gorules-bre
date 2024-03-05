@@ -1,0 +1,47 @@
+{
+  "contentType": "application/vnd.gorules.decision",
+  "nodes": [
+    {
+      "name": "myRequest",
+      "id": "9f2700fd-fb23-4337-bf1f-a2278831619a",
+      "position": {
+        "x": 275,
+        "y": 425
+      },
+      "type": "inputNode"
+    },
+    {
+      "name": "myResponse",
+      "id": "78535fa3-30f5-4e56-8c47-32c0b1050087",
+      "position": {
+        "x": 775,
+        "y": 425
+      },
+      "type": "outputNode"
+    },
+    {
+      "name": "myFunction",
+      "content": "/**\n * @param input\n * @param {{\n *  dayjs: import('dayjs')\n *  Big: import('big.js').BigConstructor\n * }} helpers\n */\nconst handler = (input, { dayjs, Big }) => {\n  const {numbers} = input;\n  return {\n    sum: numbers.reduce((acc, a) => acc+a, 0),\n    ...input\n  };\n}",
+      "id": "9b0b3f1b-32b7-47c1-95c2-20117ac0b13f",
+      "position": {
+        "x": 525,
+        "y": 425
+      },
+      "type": "functionNode"
+    }
+  ],
+  "edges": [
+    {
+      "id": "a1d77e11-ffb9-4de5-9479-c629171d2137",
+      "sourceId": "9f2700fd-fb23-4337-bf1f-a2278831619a",
+      "type": "edge",
+      "targetId": "9b0b3f1b-32b7-47c1-95c2-20117ac0b13f"
+    },
+    {
+      "id": "027d8670-1969-4bc2-9d17-f59e62fbe91c",
+      "sourceId": "9b0b3f1b-32b7-47c1-95c2-20117ac0b13f",
+      "type": "edge",
+      "targetId": "78535fa3-30f5-4e56-8c47-32c0b1050087"
+    }
+  ]
+}

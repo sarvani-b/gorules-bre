@@ -1,0 +1,60 @@
+{
+  "contentType": "application/vnd.gorules.decision",
+  "nodes": [
+    {
+      "name": "myRequest",
+      "id": "9f2700fd-fb23-4337-bf1f-a2278831619a",
+      "position": {
+        "x": 275,
+        "y": 425
+      },
+      "type": "inputNode"
+    },
+    {
+      "name": "myResponse",
+      "id": "78535fa3-30f5-4e56-8c47-32c0b1050087",
+      "position": {
+        "x": 775,
+        "y": 425
+      },
+      "type": "outputNode"
+    },
+    {
+      "name": "myExpression",
+      "content": {
+        "expressions": [
+          {
+            "id": "e685d43a-9f54-4b2e-b40d-ddd04ebfc771",
+            "key": "status",
+            "value": "transaction.amount>1000 ? 'green':'red'"
+          },
+          {
+            "id": "c2a0836a-f40e-413d-91f2-12b9a5654c0e",
+            "key": "amount",
+            "value": "transaction.amount"
+          }
+        ]
+      },
+      "id": "8fda793b-7654-44d1-b9c7-e02de341b171",
+      "position": {
+        "x": 525,
+        "y": 425
+      },
+      "type": "expressionNode"
+    }
+  ],
+  "edges": [
+    {
+      "id": "48b04ded-3389-4afd-9af1-a20862ba3f5b",
+      "sourceId": "9f2700fd-fb23-4337-bf1f-a2278831619a",
+      "type": "edge",
+      "targetId": "8fda793b-7654-44d1-b9c7-e02de341b171"
+    },
+    {
+      "id": "5b9eab50-3663-4504-9b63-92e0d58b262b",
+      "sourceId": "8fda793b-7654-44d1-b9c7-e02de341b171",
+      "type": "edge",
+      "targetId": "78535fa3-30f5-4e56-8c47-32c0b1050087"
+    }
+  ]
+}
